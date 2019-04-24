@@ -16,6 +16,9 @@ public class Movimiento : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+
+        FaceMouse();
+    
         if (Input.GetKey(KeyCode.A))
         {
             rb.velocity = new Vector2(-vel, rb.velocity.y);
@@ -41,6 +44,20 @@ public class Movimiento : MonoBehaviour {
             rb.velocity = new Vector2(rb.velocity.x, 0);
         }
 
+       
 
     }
+    void FaceMouse()
+        {
+            Vector3 mousePosition = Input.mousePosition;
+            mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+
+            Vector2 direccion = new Vector2(
+                mousePosition.x - transform.position.x,
+                mousePosition.y - transform.position.y
+                );
+
+            transform.up = direccion;
+        }
 }
+
