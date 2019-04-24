@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour {
 
-    public SpriteRenderer black_background; 
-    public SpriteRenderer linterna; 
+    SpriteRenderer black_background; 
+    SpriteRenderer linterna; 
 
 	// Use this for initialization
 	void Start () {
-        //black_background = GameObject.Find("BlackBackground").GetComponent<SpriteRenderer>();
-        //linterna = GameObject.Find("Linterna").GetComponent<SpriteRenderer>();
+        black_background = GameObject.Find("Black_Background").GetComponent<SpriteRenderer>();
+        linterna = GameObject.Find("Linterna").GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -18,11 +18,17 @@ public class PlayerInput : MonoBehaviour {
     {
         if (Input.GetKey(KeyCode.Space))
         {
+            Debug.Log("INPUT SPACE");
+            Debug.Log("BlackGround: " + black_background.enabled);
+            Debug.Log("Linterna: " + linterna.enabled);
             black_background.enabled = false;
             linterna.enabled = true;
 
         }
         else {
+            Debug.Log("NORMAL STATE");
+            Debug.Log("BlackGround: " + black_background.enabled);
+            Debug.Log("Linterna: " + linterna.enabled);
             black_background.enabled = true;
             linterna.enabled = false;
         }
