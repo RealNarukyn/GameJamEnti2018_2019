@@ -35,7 +35,7 @@ public class PlayerInput : MonoBehaviour
 
         batteries = battery_max;
 
-        keys = 0;
+        keys = 1;
     }
 
 
@@ -93,25 +93,18 @@ public class PlayerInput : MonoBehaviour
     {
         batteries++;
 
-        item = item = GameObject.Find(col.gameObject.name).GetComponent<Items>();
+        item = GameObject.Find(col.gameObject.name).GetComponent<Items>();
         item.Delete();
     }
 
-    private void DoorAction()
+    private void DoorAction(Collision2D col)
     {
-        Debug.Log("Lllaves: " + keys);
-        if (keys > 0 && door.is_locked) {
+        door = GameObject.Find(col.gameObject.name).GetComponent<Door>();
+
+        if (keys > 0) {
             door.DoorAction();
             keys--;
         }
-
-
-
-        //if (keys > 0)
-        //    if (door.DoorAction())
-        //        keys--;
-
-
     }
 
     private void OnTriggerStay2D(Collider2D col)
@@ -131,8 +124,12 @@ public class PlayerInput : MonoBehaviour
     {
         if (is_interacting)
         {
-            if (col.gameObject.name == "Door")
-                DoorAction();
+            if (
+                col.gameObject.name == "Door1" || 
+                col.gameObject.name == "Door2" ||
+                col.gameObject.name == "Door3" 
+                )
+                DoorAction(col);
 
             is_interacting = false;
         }

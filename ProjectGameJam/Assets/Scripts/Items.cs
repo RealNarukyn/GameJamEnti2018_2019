@@ -6,6 +6,7 @@ public class Items : MonoBehaviour
 {
 
     PlayerInput player;
+    
 
     // Use this for initialization
     void Start()
