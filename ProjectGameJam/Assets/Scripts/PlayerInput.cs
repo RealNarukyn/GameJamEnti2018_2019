@@ -8,7 +8,8 @@ public class PlayerInput : MonoBehaviour
 
     SpriteRenderer black_background;
     SpriteRenderer linterna;
-    Item item;
+    Items item;
+    Door door;
     public Text text;
 
     #region Variables
@@ -26,11 +27,12 @@ public class PlayerInput : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        black_background = GameObject.Find("Black_Background").GetComponent<SpriteRenderer>();
-        linterna = GameObject.Find("Linterna").GetComponent<SpriteRenderer>();
+         black_background = GameObject.Find("Black_Background").GetComponent<SpriteRenderer>();
+         linterna = GameObject.Find("Linterna").GetComponent<SpriteRenderer>();
+     
+        door = GameObject.Find("Door").GetComponent<Door>();       
 
         batteries = battery_max;
-        //StartCoroutine(BatteryLife());
 
         keys = 0;
     }
@@ -38,7 +40,7 @@ public class PlayerInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.text = "Batteries Left: " + batteries + " / 10";
+        text.text = "Batteries: " + batteries + " / 10";
 
         if (Input.GetKey(KeyCode.Space) && batteries > 0)
         {
@@ -72,24 +74,61 @@ public class PlayerInput : MonoBehaviour
         }
     }
 
-    private void GetItem(Collider2D col, int value)
+    private void GetKey(Collider2D col)
     {
-        value++;
-        item = item = GameObject.Find(col.gameObject.name).GetComponent<Item>();
+        keys++;
+
+        item = item = GameObject.Find(col.gameObject.name).GetComponent<Items>();
         item.Delete();
     }
 
-    void OnTriggerStay2D(Collider2D col)
+    private void GetBattery(Collider2D col)
+    {
+        batteries++;
+
+        item = item = GameObject.Find(col.gameObject.name).GetComponent<Items>();
+        item.Delete();
+    }
+
+    private void DoorAction()
+    {
+        Debug.Log("Lllaves: " + keys);
+        if (keys > 0 && door.is_locked) {
+            door.DoorAction();
+            keys--;
+        }
+
+
+
+        //if (keys > 0)
+        //    if (door.DoorAction())
+        //        keys--;
+
+
+    }
+
+    private void OnTriggerStay2D(Collider2D col)
     {
         if (is_interacting)
         {
             if (col.gameObject.name == "ItemKey")
-                GetItem(col, keys);
+                GetKey(col);
             else if (col.gameObject.name == "Battery")
-                GetItem(col, batteries);
-
+                GetBattery(col);
 
             is_interacting = false;
         }
     }
+
+    private void OnCollisionStay2D(Collision2D col)
+    {
+        if (is_interacting)
+        {
+            if (col.gameObject.name == "Door")
+                DoorAction();
+
+            is_interacting = false;
+        }
+    }
+
 }
