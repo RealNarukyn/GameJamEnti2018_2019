@@ -12,6 +12,8 @@ public class PlayerInput : MonoBehaviour
     Door door;
     public Text text_battery;
     public Text text_key;
+    public AudioSource sound_linterna;
+
 
     #region Variables
     private bool is_interacting = false;
@@ -55,7 +57,7 @@ public class PlayerInput : MonoBehaviour
         {
             black_background.enabled = true;
             linterna.enabled = false;
-            is_lightOn = false;
+            is_lightOn = false;   
         }
 
         if (Input.GetKeyDown(KeyCode.F))
@@ -130,7 +132,6 @@ public class PlayerInput : MonoBehaviour
                 col.gameObject.name == "Door3" 
                 )
                 DoorAction(col);
-
             is_interacting = false;
         }
     }
