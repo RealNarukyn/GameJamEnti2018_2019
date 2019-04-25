@@ -10,7 +10,8 @@ public class PlayerInput : MonoBehaviour
     SpriteRenderer linterna;
     Items item;
     Door door;
-    public Text text;
+    public Text text_battery;
+    public Text text_key;
 
     #region Variables
     private bool is_interacting = false;
@@ -30,17 +31,18 @@ public class PlayerInput : MonoBehaviour
          black_background = GameObject.Find("Black_Background").GetComponent<SpriteRenderer>();
          linterna = GameObject.Find("Linterna").GetComponent<SpriteRenderer>();
      
-        door = GameObject.Find("Door").GetComponent<Door>();       
+        //door = GameObject.Find("Door").GetComponent<Door>();       
 
         batteries = battery_max;
 
         keys = 0;
     }
 
+
     // Update is called once per frame
     void Update()
     {
-        text.text = "Batteries: " + batteries + " / 10";
+        DrawInfo();
 
         if (Input.GetKey(KeyCode.Space) && batteries > 0)
         {
@@ -58,6 +60,11 @@ public class PlayerInput : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F))
             is_interacting = true;
+    }
+
+    private void DrawInfo() {
+        text_battery.text = batteries.ToString() + " / 10";
+        text_key.text = keys.ToString();
     }
 
     private void BatteryCountDown()
