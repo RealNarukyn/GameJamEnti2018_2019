@@ -98,21 +98,7 @@ TextureImporter:
         width: 681
         height: 384
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: PuertasPilas_1
-      rect:
-        serializedVersion: 2
-        x: 479
-        y: 1758
-        width: 601
-        height: 570
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -126,7 +112,7 @@ TextureImporter:
         width: 100
         height: 102
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -140,21 +126,7 @@ TextureImporter:
         width: 117
         height: 111
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: PuertasPilas_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1293
-        width: 1188
-        height: 551
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -168,6 +140,34 @@ TextureImporter:
         width: 98
         height: 72
       alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PuertasPilas_1
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 1163
+        width: 1015
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PuertasPilas_4
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 1565
+        width: 725
+        height: 168
+      alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -177,66 +177,10 @@ TextureImporter:
       name: PuertasPilas_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1228
-        width: 236
-        height: 4
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: PuertasPilas_7
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 793
-        width: 1704
-        height: 823
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: PuertasPilas_8
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1704
-        height: 1216
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: PuertasPilas_9
-      rect:
-        serializedVersion: 2
-        x: 356
-        y: 472
-        width: 744
-        height: 744
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: PuertasPilas_10
-      rect:
-        serializedVersion: 2
-        x: 1104
-        y: 468
-        width: 600
-        height: 748
+        x: 176
+        y: 49
+        width: 365
+        height: 1063
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

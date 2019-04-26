@@ -43,7 +43,7 @@ public class PlayerInput : MonoBehaviour
 
         batteries = battery_max;
 
-        keys = 1;
+        keys = 0;
     }
 
     
@@ -74,8 +74,9 @@ public class PlayerInput : MonoBehaviour
             is_lightOn = false;  
         }
 
-        if (Input.GetKeyDown(KeyCode.F))
-            is_interacting = true;
+        if (Input.GetKeyDown(KeyCode.F)) {
+            is_interacting = true; 
+        }
 
         //if (is_lightOn == true)
         //{
@@ -135,30 +136,28 @@ public class PlayerInput : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D col)
     {
-        if (is_interacting)
-        {
             if (col.gameObject.name == "ItemKey")
                 GetKey(col);
             else if (col.gameObject.name == "Battery")
                 GetBattery(col);
 
             is_interacting = false;
-        }
     }
+
 
     private void OnCollisionStay2D(Collision2D col)
     {
-        if (is_interacting)
-        {
+            Debug.Log("col: " + col.gameObject.name);
             if (
-                col.gameObject.name == "Door1" || 
+                col.gameObject.name == "Door1" ||
                 col.gameObject.name == "Door2" ||
-                col.gameObject.name == "Door3" 
+                col.gameObject.name == "Door3"
                 )
                 DoorAction(col);
             is_interacting = false;
-        }
     }
+
+    
 
     private void OnTriggerEnter2D(Collider2D col)
     {
