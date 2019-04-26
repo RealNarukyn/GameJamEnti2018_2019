@@ -18,7 +18,7 @@ public class PlayerInput : MonoBehaviour
 
     #region Variables
     private bool is_interacting = false;
-    private bool is_lightOn = false;
+    public bool is_lightOn = false;
 
     const int battery_max = 10;
     private int keys;
@@ -33,6 +33,7 @@ public class PlayerInput : MonoBehaviour
     {
          black_background = GameObject.Find("Black_Background").GetComponent<SpriteRenderer>();
          linterna = GameObject.Find("Linterna").GetComponent<SpriteRenderer>();
+
 
         //int_linterna = 0;
         //door = GameObject.Find("Door").GetComponent<Door>();       
@@ -120,6 +121,7 @@ public class PlayerInput : MonoBehaviour
 
     private void DoorAction(Collision2D col)
     {
+        Debug.Log("HERE: " + col.gameObject.name);
         door = GameObject.Find(col.gameObject.name).GetComponent<Door>();
 
         if (keys > 0) {
@@ -154,5 +156,17 @@ public class PlayerInput : MonoBehaviour
             is_interacting = false;
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        //funcion para cargar canvas victoria
+    }
+
+
+    public void Die() {
+        Destroy(this.gameObject);
+        // Load Canvas Dead
+    }
+
 
 }
