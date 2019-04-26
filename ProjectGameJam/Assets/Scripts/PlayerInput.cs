@@ -10,7 +10,10 @@ public class PlayerInput : MonoBehaviour
     SpriteRenderer linterna;
     Items item;
     Door door;
-    public Text text;
+    public Text text_battery;
+    public Text text_key;
+    public AudioSource sound_linterna;
+
 
     #region Variables
     private bool is_interacting = false;
@@ -30,17 +33,18 @@ public class PlayerInput : MonoBehaviour
          black_background = GameObject.Find("Black_Background").GetComponent<SpriteRenderer>();
          linterna = GameObject.Find("Linterna").GetComponent<SpriteRenderer>();
      
-        door = GameObject.Find("Door").GetComponent<Door>();       
+        //door = GameObject.Find("Door").GetComponent<Door>();       
 
         batteries = battery_max;
 
-        keys = 0;
+        keys = 1;
     }
+
 
     // Update is called once per frame
     void Update()
     {
-        text.text = "Batteries: " + batteries + " / 10";
+        DrawInfo();
 
         if (Input.GetKey(KeyCode.Space) && batteries > 0)
         {
@@ -53,11 +57,16 @@ public class PlayerInput : MonoBehaviour
         {
             black_background.enabled = true;
             linterna.enabled = false;
-            is_lightOn = false;
+            is_lightOn = false;   
         }
 
         if (Input.GetKeyDown(KeyCode.F))
             is_interacting = true;
+    }
+
+    private void DrawInfo() {
+        text_battery.text = batteries.ToString() + " / 10";
+        text_key.text = keys.ToString();
     }
 
     private void BatteryCountDown()
@@ -86,25 +95,18 @@ public class PlayerInput : MonoBehaviour
     {
         batteries++;
 
-        item = item = GameObject.Find(col.gameObject.name).GetComponent<Items>();
+        item = GameObject.Find(col.gameObject.name).GetComponent<Items>();
         item.Delete();
     }
 
-    private void DoorAction()
+    private void DoorAction(Collision2D col)
     {
-        Debug.Log("Lllaves: " + keys);
-        if (keys > 0 && door.is_locked) {
+        door = GameObject.Find(col.gameObject.name).GetComponent<Door>();
+
+        if (keys > 0) {
             door.DoorAction();
             keys--;
         }
-
-
-
-        //if (keys > 0)
-        //    if (door.DoorAction())
-        //        keys--;
-
-
     }
 
     private void OnTriggerStay2D(Collider2D col)
@@ -124,9 +126,12 @@ public class PlayerInput : MonoBehaviour
     {
         if (is_interacting)
         {
-            if (col.gameObject.name == "Door")
-                DoorAction();
-
+            if (
+                col.gameObject.name == "Door1" || 
+                col.gameObject.name == "Door2" ||
+                col.gameObject.name == "Door3" 
+                )
+                DoorAction(col);
             is_interacting = false;
         }
     }
