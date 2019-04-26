@@ -64,7 +64,7 @@ public class Enemy : MonoBehaviour
         rb.position = Vector2.MoveTowards(rb.position, player.transform.position, 3 * Time.deltaTime);
     }
 
-    void OnTriggerEnter2D(Collider2D collider)
+    void OnTriggerStay2D(Collider2D collider)
     {
         if (collider.gameObject.name == "Jugador") {
             player = collider.GetComponent<PlayerInput>();

@@ -5,12 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class Movimiento : MonoBehaviour {
 
-
     private float vel = 4.0f;
     public Rigidbody2D rb;
     public AudioSource pasos;
     private bool andar;
     public Transform brazo;
+    public Animator animator;
+
 
     // Use this for initialization
     void Start () {
@@ -39,20 +40,25 @@ public class Movimiento : MonoBehaviour {
             rb.velocity = new Vector2(0, rb.velocity.y);
             andar = false;
         }
+
         if (Input.GetKey(KeyCode.W))
         {
             rb.velocity = new Vector2(rb.velocity.x, vel);
             andar = true;
+            animator.SetBool("walking_up", true);
         }
         else if (Input.GetKey(KeyCode.S))
         {
            rb.velocity = new Vector2(rb.velocity.x, -vel);
             andar = true;
+            animator.SetBool("walking_down", true);
         }
         else
         {
             rb.velocity = new Vector2(rb.velocity.x, 0);
-         
+            animator.SetBool("walking_up", false);
+            animator.SetBool("walking_down", false);
+
         }
 
         if (andar == true)
