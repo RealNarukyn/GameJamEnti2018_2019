@@ -42,6 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4872109483892506}
   - component: {fileID: 212920024033117784}
+  - component: {fileID: 114120938973895802}
   m_Layer: 0
   m_Name: brazo
   m_TagString: Untagged
@@ -72,7 +73,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1065192654378324}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -36.8, y: 7.9, z: 0}
+  m_LocalPosition: {x: -38.77, y: 24.58, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4872109483892506}
@@ -86,8 +87,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1991161277096720}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -1.7400045, y: 4.100005, z: 0}
-  m_LocalScale: {x: 13.33331, y: 3.472065, z: 2}
+  m_LocalPosition: {x: 1.25, y: 41.1, z: 0}
+  m_LocalScale: {x: 10.258049, y: 2.6712506, z: 1.53871}
   m_Children: []
   m_Father: {fileID: 4872109483892506}
   m_RootOrder: 0
@@ -99,7 +100,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1818171814195692}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.069, y: 0.054, z: 0}
+  m_LocalPosition: {x: 0.08, y: -0.38, z: 0}
   m_LocalScale: {x: 1.0080469, y: 0.18750052, z: 1}
   m_Children:
   - {fileID: 4777645479718614}
@@ -138,11 +139,11 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.5}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 5.52, y: 5.24}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.62, y: 2.95}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -313,6 +314,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &114120938973895802
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1818171814195692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ee318d0e69abf44abd635d5e7e54524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114408466977561450
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -326,6 +338,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 50706963722985090}
   pasos: {fileID: 82267470345447316}
+  brazo: {fileID: 4872109483892506}
 --- !u!114 &114593608883330326
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -374,7 +387,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 2fd464bd37e7c774cbe471b81ccbcf3c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8e259b603be31354fb0abe4bf83c91dc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -418,7 +431,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 6ab8f461422fbeb47a3385ad3089d03a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fee17bc1f7407c74a958b1a5ca9290bf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
