@@ -47,7 +47,7 @@ public class PlayerInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        DrawInfo();
         if (Input.GetKey(KeyCode.Space) && batteries > 0)
         {
             //int_linterna = 1;
@@ -60,7 +60,6 @@ public class PlayerInput : MonoBehaviour
             black_background.enabled = false;
             linterna.enabled = true;
             is_lightOn = true;
-            print("play");
             BatteryCountDown();
         }
         else
