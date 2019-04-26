@@ -10,6 +10,7 @@ public class Movimiento : MonoBehaviour {
     public Rigidbody2D rb;
     public AudioSource pasos;
     private bool andar;
+    public Transform brazo;
 
     // Use this for initialization
     void Start () {
@@ -22,7 +23,7 @@ public class Movimiento : MonoBehaviour {
     {
 
         FaceMouse();
-    
+
         if (Input.GetKey(KeyCode.A))
         {
             rb.velocity = new Vector2(-vel, rb.velocity.y);
@@ -65,17 +66,21 @@ public class Movimiento : MonoBehaviour {
         }
     }
 
+
+
     void FaceMouse()
-        {
-            Vector3 mousePosition = Input.mousePosition;
-            mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+    {
+        Vector3 mousePosition = Input.mousePosition;
+        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
-            Vector2 direccion = new Vector2(
-                mousePosition.x - transform.position.x,
-                mousePosition.y - transform.position.y
-                );
+        Vector2 direccion = new Vector2(
+            mousePosition.x - brazo.transform.position.x,
+            mousePosition.y - brazo.transform.position.y
+            );
 
-            transform.up = direccion;
-        }
+        brazo.transform.up = direccion;
+    }
+
+
 }
 
