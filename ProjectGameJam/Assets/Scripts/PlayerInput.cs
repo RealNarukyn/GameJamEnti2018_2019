@@ -12,6 +12,9 @@ public class PlayerInput : MonoBehaviour
     Door door;
     public Text text_battery;
     public Text text_key;
+    public Canvas canvas;
+    public Canvas canvas_muerte;
+    public Canvas canvas_final;
     //public AudioSource sound_linterna;
     
 
@@ -33,7 +36,7 @@ public class PlayerInput : MonoBehaviour
     {
          black_background = GameObject.Find("Black_Background").GetComponent<SpriteRenderer>();
          linterna = GameObject.Find("Linterna").GetComponent<SpriteRenderer>();
-
+        canvas_muerte.gameObject.SetActive(false);
 
         //int_linterna = 0;
         //door = GameObject.Find("Door").GetComponent<Door>();       
@@ -159,12 +162,18 @@ public class PlayerInput : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        //funcion para cargar canvas victoria
+       if (col.gameObject.name == "Door3")
+       {
+            canvas_final.gameObject.SetActive(true);
+            canvas.gameObject.SetActive(false);
+       }
     }
 
 
     public void Die() {
         Destroy(this.gameObject);
+        canvas.gameObject.SetActive(false);
+        canvas_muerte.gameObject.SetActive(true);
         // Load Canvas Dead
     }
 

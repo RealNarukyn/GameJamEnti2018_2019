@@ -50,6 +50,7 @@ public class Camara : MonoBehaviour {
     public void NextScene(string scenename)
     {
         SceneManager.LoadScene(scenename);
+        Jugador.SetActive(true);
     }
     public void Continuar()
     {
