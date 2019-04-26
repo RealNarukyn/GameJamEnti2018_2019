@@ -12,7 +12,8 @@ public class PlayerInput : MonoBehaviour
     Door door;
     public Text text_battery;
     public Text text_key;
-    public AudioSource sound_linterna;
+    //public AudioSource sound_linterna;
+    
 
 
     #region Variables
@@ -32,7 +33,8 @@ public class PlayerInput : MonoBehaviour
     {
          black_background = GameObject.Find("Black_Background").GetComponent<SpriteRenderer>();
          linterna = GameObject.Find("Linterna").GetComponent<SpriteRenderer>();
-     
+
+        //int_linterna = 0;
         //door = GameObject.Find("Door").GetComponent<Door>();       
 
         batteries = battery_max;
@@ -40,28 +42,46 @@ public class PlayerInput : MonoBehaviour
         keys = 1;
     }
 
+    
 
     // Update is called once per frame
     void Update()
     {
-        DrawInfo();
 
         if (Input.GetKey(KeyCode.Space) && batteries > 0)
         {
+            //int_linterna = 1;
+            //if (int_linterna == 1)
+            //{
+            //    if (!sound_linterna.isPlaying)
+            //        sound_linterna.Play();
+            //}
+
             black_background.enabled = false;
             linterna.enabled = true;
             is_lightOn = true;
+            print("play");
             BatteryCountDown();
         }
         else
         {
+            //int_linterna = 0;
             black_background.enabled = true;
             linterna.enabled = false;
-            is_lightOn = false;   
+            is_lightOn = false;  
         }
 
         if (Input.GetKeyDown(KeyCode.F))
             is_interacting = true;
+
+        //if (is_lightOn == true)
+        //{
+        //    sound_linterna.Play();
+        //}
+        //else if (is_lightOn == false)
+        //{
+        //    sound_linterna.Play();
+        //}
     }
 
     private void DrawInfo() {
