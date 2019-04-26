@@ -57,6 +57,11 @@ public class Camara : MonoBehaviour {
         canvasPause.gameObject.SetActive(false);
         Jugador.SetActive(true);
     }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene("Main");
+    }
 }
 
 
